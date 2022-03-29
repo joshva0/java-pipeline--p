@@ -4,6 +4,6 @@ COPY ./src ./src
 RUN mvn dependency:go-offline -B
 RUN mvn package
 FROM openjdk:8u171-jre-alpine
-WORKDIR /java-pipeline--p
-COPY --from=maven target/SimpleJavaProject-*.jar ./java-pipeline--p/java-app.jar
-CMD ["java", "-jar", "./java-pipeline--p/java-app.jar"]
+WORKDIR /joshva0
+COPY --from=maven target/SimpleJavaProject-*.jar ./joshva0/java-pipeline--p.jar
+CMD ["java", "-jar", "./joshva0/java-pipeline--p.jar"]
