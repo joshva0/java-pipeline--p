@@ -46,7 +46,7 @@ jobs:
         env:
           GITHUB_TOKEN: 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 #${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: e8180d95176299245328fc7375b0b69ed12ac031 #${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=joshva0/java-pipeline--p
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sonar_pratice
 
       # - name: Step 3- Cache SonarCloud packages
       #   uses: actions/cache@v1
