@@ -6,4 +6,4 @@ RUN mvn package
 FROM openjdk:8u171-jre-alpine
 WORKDIR /java-pipeline--p
 COPY --from=maven target/SimpleJavaProject-*.jar ./java-pipeline--p/java-app.jar
-CMD ["java", "-jar", "./java-java-pipeline--p/java-app.jar"]
+CMD ["java", "-jar", "./java-pipeline--p/java-app.jar"]
