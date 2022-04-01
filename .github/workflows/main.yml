@@ -47,16 +47,12 @@ jobs:
           GITHUB_TOKEN: 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 #${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: e8180d95176299245328fc7375b0b69ed12ac031 #${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sonar_pratice
-      - name: acr login
-        uses: azure/docker-login@v1
-        with:
-          login-server: acrdemo012.azurecr.io
-          username: ${{ secrets.acr_USERNAME }}
-          password: ${{ secrets.acr_PASSWORD }}
-      - name: Docker bulid and push to acr
-        run:
-          docker build . -t acrdemo012.azurecr.io/demo:latest
-          docker push acrdemo012.azurecr.io/demo:latest
+      - name: Run AZ Build and Push Docker to ACR
+        run: |
+          az login --service-principal -u "${{secrets.USERNAME}}" -p "${{secrets.PASSWORD}}" --tenant "bd5c6713-7399-4b31-be79-78f2d078e543"
+          echo "log in success"
+          az acr build --registry "acrdemo012.azurecr.io" -t "dockerimage:${{ github.sha }}" --file ./Dockerfile .
+        shell: bash
 
       # - name: Step 3- Cache SonarCloud packages
       #   uses: actions/cache@v1
