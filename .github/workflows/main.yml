@@ -60,9 +60,9 @@ jobs:
       - name: To deploy the docker container into Azure web app 
         uses: azure/webapps-deploy@v2
         with:
-         app-name: 'web01app'
+         app-name: 'webappdemo012'
          publish-profile: ${{ secrets.PUBLISHPROFILE }}
-         images: 'container01registry.azurecr.io/dockerimage:${{ github.sha }}'
+         images: 'acrdemo012.azurecr.io/dockerimage:${{ github.sha }}'
 
       # - name: Step 3- Cache SonarCloud packages
       #   uses: actions/cache@v1
