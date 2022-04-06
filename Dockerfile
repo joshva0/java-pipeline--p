@@ -5,5 +5,5 @@ RUN mvn dependency:go-offline -B
 RUN mvn package
 FROM openjdk:8u171-jre-alpine
 WORKDIR /joshva0
-COPY --from=maven target/SimpleJavaProject-*.jar ./joshva0/java-pipeline--p.jar
+COPY --from=maven target/jb-hello-world-maven*.jar ./joshva0/java-pipeline--p.jar
 CMD ["java", "-war", "./joshva0/java-pipeline--p.jar"]
