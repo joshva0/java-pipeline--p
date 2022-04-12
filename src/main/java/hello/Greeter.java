@@ -1,7 +1,5 @@
-package hello;
-
-public class Greeter {
-    public String sayHello() {
-        return "DevOps Project";
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!"); 
     }
 }
